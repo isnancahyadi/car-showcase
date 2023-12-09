@@ -7,15 +7,15 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { Fragment, useState } from "react";
 
-const CustomFilter = ({ title, options }: CustomFilterProps) => {
-  const router = useRouter();
+const CustomFilter = ({ title, options, setFilter }: CustomFilterProps) => {
+  // const router = useRouter();
   const [selected, setSelected] = useState(options[0]);
 
-  const handleUpdateParams = (e: { title: string; value: string }) => {
-    const newPathName = updateSearchParams(title, e.value.toLowerCase());
+  // const handleUpdateParams = (e: { title: string; value: string }) => {
+  //   const newPathName = updateSearchParams(title, e.value.toLowerCase());
 
-    router.push(newPathName);
-  };
+  //   router.push(newPathName);
+  // };
 
   return (
     <div className="w-fit">
@@ -23,7 +23,8 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
         value={selected}
         onChange={(e) => {
           setSelected(e);
-          handleUpdateParams(e);
+          // handleUpdateParams(e);
+          setFilter(e.value);
         }}
       >
         <div className="relative w-fit z-10">
